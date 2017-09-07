@@ -17,11 +17,11 @@ export class ProductListComponent implements OnInit {
     _listFilter: string;
     errorMessage: any;
 
-    get listFilter(): string{
+    get listFilter(): string {
         return this._listFilter;
     }
 
-    set listFilter(value: string){
+    set listFilter(value: string) {
         this._listFilter = value;
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
     }
@@ -29,7 +29,7 @@ export class ProductListComponent implements OnInit {
     filteredProducts: IProduct[];
     products: IProduct[] = [];
 
-    constructor(private _productService: ProductService ) {
+    constructor(private _productService: ProductService) {
     }
 
     performFilter(filterBy: string): IProduct[] {
@@ -42,7 +42,7 @@ export class ProductListComponent implements OnInit {
         this.showImage = !this.showImage;
     }
 
-    ngOnInit(): void{
+    ngOnInit(): void {
         console.log('In OnInit');
         this._productService.getProducts().subscribe(
             products => {
